@@ -11,7 +11,7 @@ categories = ["cryptography", "no-std"]
 
 [dependencies]
 byte-tools = "0.2"
-block-cipher-trait = "0.5"
+block-cipher-trait = { git = "https://github.com/fortelabsinc/traits", rev="727a18f143cda9e0da7fc925722d77ae254d201a" }
 opaque-debug = "0.1"
 
 [badges]

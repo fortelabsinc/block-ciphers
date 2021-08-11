@@ -10,12 +10,12 @@ keywords = ["crypto", "des", "tdes", "block-cipher"]
 categories = ["cryptography", "no-std"]
 
 [dependencies]
-block-cipher-trait = "0.5"
+block-cipher-trait = { git = "https://github.com/fortelabsinc/traits", rev="727a18f143cda9e0da7fc925722d77ae254d201a" }
 byte-tools = "0.2"
 opaque-debug = "0.1"
 
 [dev-dependencies]
-block-cipher-trait = { version = "0.5", features = ["dev"] }
+block-cipher-trait = { git = "https://github.com/fortelabsinc/traits", rev="727a18f143cda9e0da7fc925722d77ae254d201a" }
 
 [badges]
 travis-ci = { repository = "RustCrypto/block-ciphers" }
