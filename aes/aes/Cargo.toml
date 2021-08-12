@@ -13,7 +13,7 @@ categories = ["cryptography", "no-std"]
 block-cipher-trait = { git = "https://github.com/fortelabsinc/traits", rev="727a18f143cda9e0da7fc925722d77ae254d201a" }
 
 [target.'cfg(not(all(target_feature="aes", target_feature = "sse2", any(target_arch = "x86_64", target_arch = "x86"))))'.dependencies]
-#aes-soft = {path = "../aes-soft"}
+aes-soft = {path = "../aes-soft"}
 
 [target.'cfg(all(target_feature="aes", target_feature = "sse2", any(target_arch = "x86_64", target_arch = "x86")))'.dependencies]
 aesni = { path="../aesni" }
