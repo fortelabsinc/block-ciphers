@@ -10,10 +10,11 @@ keywords = ["crypto", "block-cipher", "ciphers"]
 
 [dependencies]
 block-padding = "0.1"
-block-cipher-trait = "0.6"
+block-cipher-trait = { git = "https://github.com/fortelabsinc/traits", rev="727a18f143cda9e0da7fc925722d77ae254d201a" }
 
 [dev-dependencies]
-aes-soft = "0.3"
+aes-soft = {path = "../aes/aes-soft"}
+
 hex-literal = "0.1"
 
 [features]
