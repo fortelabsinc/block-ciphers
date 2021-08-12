@@ -12,13 +12,11 @@ categories = ["cryptography", "no-std"]
 [dependencies]
 block-cipher-trait = { git = "https://github.com/fortelabsinc/traits", rev="727a18f143cda9e0da7fc925722d77ae254d201a" }
 opaque-debug = "0.2"
-#stream-cipher = { version = "0.3", optional = true }
-cipher = { git="https://github.com/fortelabsinc/traits", rev="76eeac2e494a90cf847be767117f8ca155f50709" }
+stream-cipher = { git="https://github.com/fortelabsinc/traits", rev="bc79ccb48b97aa1c7ea1b442763be126900094ae", optional = true }
 
 [dev-dependencies]
 block-cipher-trait = { git = "https://github.com/fortelabsinc/traits", rev="727a18f143cda9e0da7fc925722d77ae254d201a" }
-#stream-cipher = { version = "0.3", features = ["dev"] }
-cipher = { git="https://github.com/fortelabsinc/traits", rev="76eeac2e494a90cf847be767117f8ca155f50709" }
+stream-cipher = { git="https://github.com/fortelabsinc/traits", rev="bc79ccb48b97aa1c7ea1b442763be126900094ae" }
 
 [features]
 default = ["ctr"]
