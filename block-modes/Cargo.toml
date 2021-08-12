@@ -1,6 +1,6 @@
 [package]
 name = "block-modes"
-version = "0.2.0"
+version = "0.3.0"
 authors = ["RustCrypto Developers"]
 license = "MIT/Apache-2.0"
 description = "Block cipher modes of operation"
@@ -14,3 +14,9 @@ block-cipher-trait = { git = "https://github.com/fortelabsinc/traits", rev="727a
 
 [dev-dependencies]
 aes-soft = {path = "../aes/aes-soft"}
+
+hex-literal = "0.1"
+
+[features]
+default = ["std"]
+std = []

@@ -1,19 +1,15 @@
 #![no_std]
 pub extern crate block_cipher_trait;
-extern crate byte_tools;
-#[macro_use]
-extern crate opaque_debug;
+extern crate byteorder;
+#[macro_use] extern crate opaque_debug;
 
 mod sboxes_exp;
-#[macro_use]
-mod construct;
+#[macro_use] mod construct;
 
-pub use block_cipher_trait::BlockCipher;
-use byte_tools::{read_u32_le, read_u32v_le, write_u32_le};
+use block_cipher_trait::BlockCipher;
+use byteorder::{LE, ByteOrder};
 use block_cipher_trait::generic_array::GenericArray;
 use block_cipher_trait::generic_array::typenum::{U1, U32, U8};
-
-use core::fmt;
 
 use sboxes_exp::*;
 
@@ -51,7 +47,7 @@ impl Gost89 {
 
     #[inline]
     fn encrypt(&self, block: &mut Block) {
-        let mut v = (read_u32_le(&block[0..4]), read_u32_le(&block[4..8]));
+        let mut v = (LE::read_u32(&block[0..4]), LE::read_u32(&block[4..8]));
 
         for _ in 0..3 {
             for i in (0..8).rev() {
@@ -61,13 +57,13 @@ impl Gost89 {
         for i in 0..8 {
             v = (v.1 ^ self.g(v.0, self.key[i]), v.0);
         }
-        write_u32_le(&mut block[0..4], v.1);
-        write_u32_le(&mut block[4..8], v.0);
+        LE::write_u32(&mut block[0..4], v.1);
+        LE::write_u32(&mut block[4..8], v.0);
     }
 
     #[inline]
     fn decrypt(&self, block: &mut Block) {
-        let mut v = (read_u32_le(&block[0..4]), read_u32_le(&block[4..8]));
+        let mut v = (LE::read_u32(&block[0..4]), LE::read_u32(&block[4..8]));
 
         for i in (0..8).rev() {
             v = (v.1 ^ self.g(v.0, self.key[i]), v.0);
@@ -78,8 +74,8 @@ impl Gost89 {
                 v = (v.1 ^ self.g(v.0, self.key[i]), v.0);
             }
         }
-        write_u32_le(&mut block[0..4], v.1);
-        write_u32_le(&mut block[4..8], v.0);
+        LE::write_u32(&mut block[0..4], v.1);
+        LE::write_u32(&mut block[4..8], v.0);
     }
 }
 
