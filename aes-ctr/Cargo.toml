@@ -5,23 +5,23 @@ authors = ["RustCrypto Developers"]
 license = "MIT OR Apache-2.0"
 description = "AES-CTR stream ciphers"
 documentation = "https://docs.rs/aes-ctr"
-repository = "https://github.com/RustCrypto/stream-ciphers"
-keywords = ["crypto", "stream-cipher", "trait"]
+repository = "https://github.com/RustCrypto/ciphers"
+keywords = ["crypto", "cipher", "trait"]
 categories = ["cryptography", "no-std"]
 
 [dependencies]
-stream-cipher = "0.3"
+cipher = { git="https://github.com/fortelabsinc/traits", rev="76eeac2e494a90cf847be767117f8ca155f50709" }
 
 [target.'cfg(not(all(target_feature = "aes", target_feature = "sse2", target_feature = "ssse3", any(target_arch = "x86_64", target_arch = "x86"))))'.dependencies]
 #ctr = "0.3"
 ctr = {path = "../ctr"}
-aes-soft = "0.3"
+aes-soft = { git = "https://github.com/fortelabsinc/block-ciphers", rev="fba23c3d89cace099c42e76ebf8af8a7569eb7f4" }
 
 [target.'cfg(all(target_feature = "aes", target_feature = "sse2", target_feature = "ssse3", any(target_arch = "x86_64", target_arch = "x86")))'.dependencies]
-aesni = "0.6"
+aesni = { git = "https://github.com/fortelabsinc/block-ciphers", rev="fba23c3d89cace099c42e76ebf8af8a7569eb7f4" }
 
 [dev-dependencies]
-stream-cipher = { version = "0.3", features = ["dev"] }
+cipher = { git="https://github.com/fortelabsinc/traits", rev="76eeac2e494a90cf847be767117f8ca155f50709" }
 
 [badges]
-travis-ci = { repository = "RustCrypto/stream-ciphers" }
+travis-ci = { repository = "RustCrypto/ciphers" }

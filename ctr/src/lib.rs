@@ -1,7 +1,7 @@
 //! Generic implementation of CTR mode for block cipher with 128-bit block size.
 //!
 //! Mode functionality is accessed using traits from re-exported
-//! [`stream-cipher`](https://docs.rs/stream-cipher) crate.
+//! [`cipher`](https://docs.rs/cipher) crate.
 //!
 //! # Warning
 //! This crate does not provide any authentification! Thus ciphertext integrity

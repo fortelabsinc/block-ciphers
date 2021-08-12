@@ -5,21 +5,21 @@ authors = ["RustCrypto Developers"]
 license = "MIT OR Apache-2.0"
 description = "Generic 8-bit Cipher Feedback (CFB8) mode implementation."
 documentation = "https://docs.rs/cfb8"
-repository = "https://github.com/RustCrypto/stream-ciphers"
-keywords = ["crypto", "stream-cipher", "block-mode"]
+repository = "https://github.com/RustCrypto/ciphers"
+keywords = ["crypto", "cipher", "block-mode"]
 categories = ["cryptography", "no-std"]
 
 [dependencies]
-stream-cipher = "0.3"
-block-cipher-trait = "0.6"
+cipher = { git="https://github.com/fortelabsinc/traits", rev="76eeac2e494a90cf847be767117f8ca155f50709" }
+block-cipher-trait = { git = "https://github.com/fortelabsinc/traits", rev="727a18f143cda9e0da7fc925722d77ae254d201a" }
 
 [dev-dependencies]
-aes = "0.3"
-stream-cipher = { version = "0.3", features = ["dev"] }
+aes = { git = "https://github.com/fortelabsinc/block-ciphers", rev="fba23c3d89cace099c42e76ebf8af8a7569eb7f4" }
+cipher = { git="https://github.com/fortelabsinc/traits", rev="76eeac2e494a90cf847be767117f8ca155f50709" }
 hex-literal = "0.1"
 
 [badges]
-travis-ci = { repository = "RustCrypto/stream-ciphers" }
+travis-ci = { repository = "RustCrypto/ciphers" }
 
 [package.metadata.docs.rs]
 features = [ "std" ]

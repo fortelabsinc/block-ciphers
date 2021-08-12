@@ -1,7 +1,7 @@
 //! AES-CTR ciphers implementation.
 //!
 //! Cipher functionality is accessed using traits from re-exported
-//! [`stream-cipher`](https://docs.rs/stream-cipher) crate.
+//! [`cipher`](https://docs.rs/cipher) crate.
 //!
 //! This crate will select appropriate implementation at compile time depending
 //! on target architecture and enabled target features. For the best performance
